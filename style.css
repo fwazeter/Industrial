@@ -1,0 +1,82 @@
+/*
+Theme Name: Industrial
+Theme URI: https://wazfactor.com/
+Author: Frank Wazeter
+Author URI: https://wazeter.com/
+Description: Block Editor Based Theme - Industrial
+Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready
+Version: 0.1.4
+Requires at least: 5.8
+Tested up to: 5.4
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: industrial
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/**------------------------------------------------------------------
+ * This file only serves as the theme file-header. Styles are located
+ * in /assets/src dir and minified to compile to /assets/css.
+ --------------------------------------------------------------------*/
+
+/**
+ * Fixes padding until something like --wp--style--block-gap
+ * updating .has-background works.
+ */
+.has-background:not(a) {
+    padding: var(--wp--style--block-gap);
+}
+
+[class*='wp-container-'] .wp-block-cover {
+    margin-top: 0;
+}
+
+.wp-site-blocks > header,
+.wp-site-blocks > footer {
+    margin-top: 0;
+}
+
+.wp-block-post-content {
+    margin-top: 0;
+}
+
+/* Columns custom block style, probably move later */
+
+@media (max-width: 960px) {
+
+    .is-columns-reel {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: var(--wp--style--block-gap);
+        scrollbar-color: var(--wp--preset--color--secondary) var(--wp--preset--color--primary);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .is-columns-reel::-webkit-scrollbar {
+        height: 1rem;
+    }
+
+    .is-columns-reel::-webkit-scrollbar-track {
+        height: var(--wp--preset--color--primary);
+    }
+
+    .is-columns-reel::-webkit-scrollbar-thumb {
+        background-color: var(--wp--preset--color--primary);
+    }
+
+    .is-columns-reel::after {
+        content: '';
+        flex-basis: 1em;
+        flex-shrink: 0;
+    }
+    .is-columns-reel > .wp-block-column {
+        flex: 0 0 auto !important;
+        max-width: 60%;
+    }
+    .is-columns-reel > .wp-block-column > .wp-block-cover {
+        min-height: 50vh !important;
+    }
+}
